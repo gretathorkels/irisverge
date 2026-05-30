@@ -49,15 +49,20 @@
     }
 
     .columns {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas:
+        "name    contact  portfolio"
+        "info    .        .";
       gap: 2rem;
-      align-items: flex-start;
+      align-items: start;
       margin-top: 4rem;
     }
 
-    .columns > * {
-      flex: 1;
-    }
+    .col-name      { grid-area: name; }
+    .col-contact   { grid-area: contact; }
+    .col-info      { grid-area: info; }
+    .col-portfolio { grid-area: portfolio; }
 
     ul {
       list-style: none;
@@ -92,9 +97,23 @@
     }
 
     @media (max-width: 600px) {
+      nav {
+        position: static;
+        margin-bottom: 2rem;
+      }
+
       .columns {
-        flex-direction: column;
-        margin-top: 3rem;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "name"
+          "contact"
+          "info"
+          "portfolio";
+        margin-top: 0;
+      }
+
+      .col-info {
+        margin-top: 0;
       }
     }
 
@@ -108,18 +127,20 @@
   </nav>
 
   <div class="columns">
-    <div>
+    <div class="col-name">
       <h1>Iris Verge Ferrer</h1>
-      <p data-i18n="role"></p>
-      <p data-i18n="bio"></p>
     </div>
-    <div>
+    <div class="col-contact">
       <ul>
         <li><a href="mailto:iris@example.com">iris@example.com</a></li>
         <li>Barcelona</li>
       </ul>
     </div>
-    <div>
+    <div class="col-info">
+      <p data-i18n="role"></p>
+      <p data-i18n="bio"></p>
+    </div>
+    <div class="col-portfolio">
       <a href="portfolio.pdf" target="_blank" data-i18n="portfolio"></a>
     </div>
   </div>
