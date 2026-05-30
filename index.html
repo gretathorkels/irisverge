@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Irisverge</title>
+  <style>
+    @font-face {
+      font-family: 'Blur';
+      src: url('fonts/Blur Light.woff2') format('woff2');
+      font-weight: 300;
+    }
+    @font-face {
+      font-family: 'Blur';
+      src: url('fonts/Blur Regular.woff2') format('woff2'),
+           url('fonts/Blur Regular.woff') format('woff');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'Blur';
+      src: url('fonts/Blur Medium.woff2') format('woff2'),
+           url('fonts/Blur Medium.woff') format('woff');
+      font-weight: 500;
+    }
+    @font-face {
+      font-family: 'Blur';
+      src: url('fonts/Blur Bold.woff2') format('woff2'),
+           url('fonts/Blur Bold.woff') format('woff');
+      font-weight: 700;
+    }
+    @font-face {
+      font-family: 'HAL Timezone';
+      src: url('fonts/HALTimezone-Mono.woff2') format('woff2'),
+           url('fonts/HALTimezone-Mono.woff') format('woff');
+    }
+
+    body {
+      margin: 2rem;
+      font-family: 'HAL Timezone', monospace;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    h1 {
+      font-family: 'Blur', sans-serif;
+      font-weight: 400;
+      font-size: 2em;
+      margin: 0;
+    }
+
+    .columns {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-top: 4rem;
+    }
+
+    .columns > * {
+      flex: 1;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+    }
+
+    a, nav button {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:hover, nav button:hover {
+      color: -webkit-link;
+      color: linktext;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0 0.75rem 0 0;
+      font-family: inherit;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <button onclick="setLang('ca')">CA</button>
+    <button onclick="setLang('en')">EN</button>
+  </nav>
+
+  <div class="columns">
+    <div>
+      <h1>Iris Verge Ferrer</h1>
+      <p data-i18n="role"></p>
+      <p data-i18n="bio"></p>
+    </div>
+    <div>
+      <ul>
+        <li><a href="mailto:iris@example.com">iris@example.com</a></li>
+        <li>Barcelona</li>
+      </ul>
+    </div>
+    <div>
+      <a href="portfolio.pdf" target="_blank" data-i18n="portfolio"></a>
+    </div>
+  </div>
+
+<script>
+  const translations = {
+    ca: {
+      role: "Dissenyadora gràfica",
+      bio: "Creativa especialitzada en identitat visual i disseny editorial.",
+      portfolio: "Veure portafoli →",
+    },
+    en: {
+      role: "Cultural worker",
+      bio: "Creative specialising in visual identity and editorial design.",
+      portfolio: "View portfolio →",
+    },
+  };
+
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      el.textContent = translations[lang][el.dataset.i18n];
+    });
+  }
+
+  setLang('ca');
+</script>
+
+</body>
+</html>
