@@ -64,6 +64,15 @@
     .col-info      { grid-area: info; display: flex; flex-direction: column; gap: 2rem; }
     .col-portfolio { grid-area: portfolio; }
 
+    footer {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      font-family: 'HAL Timezone', monospace;
+      font-size: 0.6rem;
+      color: #999;
+    }
+
     p {
       margin: 0;
     }
@@ -149,17 +158,24 @@
     </div>
   </div>
 
+  <footer>
+    <p data-i18n="construction"></p>
+ 
+  </footer>
+
 <script>
   const translations = {
     ca: {
       role: "Dissenyadora gràfica",
       bio: "Creativa especialitzada en identitat visual i disseny editorial.",
       portfolio: "Veure portafoli →",
+      construction: "© Iris Verge 2026. Aquest lloc sempre està en construcció.",
     },
     en: {
       role: "Cultural worker, something something, something else, management, yeah!",
       bio: "Obviously there should be some nice text here - I don't know what exactly but it will be cute.",
       portfolio: "View PDF portfolio →",
+      construction: "© Iris Verge 2026. This site is always under construction. ",
     },
   };
 
