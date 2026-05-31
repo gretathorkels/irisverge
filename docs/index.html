@@ -61,8 +61,12 @@
 
     .col-name      { grid-area: name; }
     .col-contact   { grid-area: contact; }
-    .col-info      { grid-area: info; }
+    .col-info      { grid-area: info; display: flex; flex-direction: column; gap: 2rem; }
     .col-portfolio { grid-area: portfolio; }
+
+    p {
+      margin: 0;
+    }
 
     ul {
       list-style: none;
@@ -153,9 +157,9 @@
       portfolio: "Veure portafoli →",
     },
     en: {
-      role: "Cultural worker",
-      bio: "Creative specialising in visual identity and editorial design.",
-      portfolio: "View portfolio →",
+      role: "Cultural worker, something something, something else, management, yeah!",
+      bio: "Obviously there should be some nice text here - I don't know what exactly but it will be cute.",
+      portfolio: "View PDF portfolio →",
     },
   };
 
